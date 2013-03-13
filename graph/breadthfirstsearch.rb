@@ -1,10 +1,9 @@
 ############################################################################
 # A Breadth First Search implementation written by Andrew Mayne
 # Input (Adjacency List): 1:2,5.2:1,5,4,3.3:2,4.4:2,3,5.5:1,2,4
+# Output: 1, 2, 5, 4, 3 
 ############################################################################
-# 1. Divide unsorted lists into n sublist each containing 1 element
-# 2. Repeatedly merge sublist to produce sorted list
-############################################################################
+
 
 class Node
   attr_accessor :name, :children, :visited, :distance  
@@ -36,7 +35,6 @@ def BFS(graph, start)
   end
 end
 
-
 def read_line
   gets.strip.split('.')
 end
@@ -60,4 +58,3 @@ start, graph = build_graph(list)
 
 BFS(graph, start)
 
-#puts merged.join(" ")
