@@ -3,23 +3,23 @@ Word Ladder Problem
 
 A word ladder is an interesting puzzle. Invented in 1878 by Lewis Carroll, the author of Alice in Wonderland. In this kind of puzzle you must change one character at a time to transform one word into another.
 
-Consider this: how can we transform the word "POOL" into the word "SAGE"? The only constraints are we must only use real dictionary words, and that word length is constant (assumed).
+Consider this: how can we transform the word "POOL" into the word "SAGE"? The only constraints are we must only use real dictionary words, and that word length is constant (assumed):
 
-pool
-cool 
-coal 
-foal 
-foil 
-boil 
-bail 
-hail 
-hall 
-call 
-calf 
-caff 
-cafe 
-safe 
-sage
+	pool
+	cool 
+	coal 
+	foal 
+	foil 
+	boil 
+	bail 
+	hail 
+	hall 
+	call 
+	calf 
+	caff 
+	cafe 
+	safe 
+	sage
 
 Solution
 --------
