@@ -4,17 +4,7 @@
 # Output: 1, 2, 5, 4, 3 
 ############################################################################
 
-
-class Node
-  attr_accessor :name, :children, :visited, :distance  
-  
-  def initialize(name, children = [])
-    @name = name
-    @children = children
-    @visited = false
-    @distance = 0
-  end 
-end 
+require './graph'
 
 def BFS(graph, start)
   queue = Array.new
@@ -25,11 +15,11 @@ def BFS(graph, start)
     break if queue.empty? # while Q not empty
     current = queue.pop  # pop the first node v
     current.children.each do |child| # for each edge (v,w)
-      child_node = graph[child]
-      unless child_node.visited # if w unexplored
-        puts "found #{child_node.name}"
-        child_node.visited = true # mark w as explored
-        queue.push(child_node) # push w to end of the Q
+      child_vertex = graph[child]
+      unless child_vertex.visited # if w unexplored
+        puts "found #{child_vertex.name}"
+        child_vertex.visit # mark w as explored
+        queue.push(child_vertex) # push w to end of the Q
       end
     end
   end
@@ -40,16 +30,16 @@ def read_line
 end
 
 def build_graph(list)
-  start_node = nil
-  graph = {}
+  start_vertex = nil
+  graph = Graph.new
   list.each_with_index do |line,i|
     name, elem = line.split(":")
-    children = elem.split(",")
-    node = Node.new(name, children)
-    graph[name] = node
-    start_node = node if i == 0 
+    edges = elem.split(",")
+    vertex = Vertex.new(name, edges)
+    graph.add(vertex)
+    start_vertex = vertex if i == 0 
   end
-  return start_node, graph
+  return start_vertex, graph
 end
 
 list = read_line
