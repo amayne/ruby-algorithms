@@ -30,35 +30,31 @@ def find_solution
   
   current = initial_node
   
-  catch(:found) do
-    loop do
-      pegs_available = (1..k).to_a
-      break if queue.empty?
-      current.configuration.each_with_index do |from, i|
-        if pegs_available.include? from
-          pegs_available.delete from
-          break if pegs_available.empty?
-          pegs_available.each do |to|
-            configuration = current.configuration.dup
-            configuration[i] = to
+  while solution_node.nil? do
+    pegs_available = (1..k).to_a
+    break if queue.empty?
+    current.configuration.each_with_index do |from, i|
+      if pegs_available.include? from
+        pegs_available.delete from
+        break if pegs_available.empty?
+        pegs_available.each do |to|
+          configuration = current.configuration.dup
+          configuration[i] = to
 
-            moves = current.moves.dup
-            moves << "#{ from } #{ to }"
+          moves = current.moves.dup
+          moves << "#{ from } #{ to }"
 
-            node = Node.new(configuration, moves)
-
-            if node.configuration == desired_node.configuration
+          node = Node.new(configuration, moves)
+          if node.configuration == desired_node.configuration
               solution_node = node 
-              throw :found
-            else
-              queue << node
-            end 
-          end
+          else
+            queue << node
+          end 
         end
-      end            
-      current = queue.shift
-    end    
-  end
+      end
+    end            
+    current = queue.shift
+  end    
   solution_node
 end 
 
