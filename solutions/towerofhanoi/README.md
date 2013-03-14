@@ -20,7 +20,8 @@ Input Format
 Output Format
 -------------
 
-    The first line contains M - The minimal number of moves required to complete the transformation. The following M lines describe a move, by a peg number to pick from and a peg number to place on. If there are more than one solutions, it's sufficient to output any one of them. You can assume, there is always a solution with less than 7 moves and the initial confirguration will not be same as the final one.
+    The first line contains M - The minimal number of moves required to complete the transformation. 
+	The following M lines describe a move, by a peg number to pick from and a peg number to place on. If there are more than one solutions, it's sufficient to output any one of them. You can assume, there is always a solution with less than 7 moves and the initial confirguration will not be same as the final one.
 
 
 Sample Input #00
