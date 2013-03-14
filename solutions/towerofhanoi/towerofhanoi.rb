@@ -6,10 +6,6 @@ class Node
     @moves = moves
     @distance = distance
   end
-  
-  def ==(other)
-    configuration = other.configuration
-  end
 end 
 
 def read_line
