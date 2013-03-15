@@ -2,10 +2,11 @@ def center_mass(staff)
   sum = 0
   weighted_sum = 0
   staff.each { |w| sum += w }
-  staff.each_with_index { |w, i| weighted_sum += w * i }
-  center_mass = weighted_sum / sum
-  center = staff.size/2.0
+  staff.each_with_index { |w, i| weighted_sum += w * (i+1) }
+  center_mass = weighted_sum.to_f / sum.to_f
+  center = (staff.size.to_f+1.0) / 2.0
   balanced = false
+  #print "center #{center} center_mass #{center_mass}, #{staff}\n"
   if center == center_mass
     balanced = true
   end
@@ -28,7 +29,7 @@ def find_solution
     0.upto(remainder) { |left_offset| 
       left = branch[left_offset..len+left_offset-1]
       right_remainder = remainder - left_offset
-      0.upto(right_remainder) { |right_offset| 
+      right_remainder.downto(0) { |right_offset| 
         right = branch[branch.size-right_offset-len..branch.size-right_offset-1]
         tmp = left+right
         balanced = center_mass(tmp)
