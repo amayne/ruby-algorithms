@@ -39,12 +39,7 @@ class TestCase
       elsif score == sequence_length
         possibilities = nil
       else
-        guesses[i].each_with_index do |guess, j|
-          if possibilities[j].nil? || !possibilities[j].include?(guess)
-            pass = false
-            break
-          end
-        end
+        
       end
     end
     if pass 

@@ -12,7 +12,7 @@ def read_line
   gets.strip.split(' ').map(&:to_i) # since we're only dealing with numbers
 end
 
-def find_solution 
+def find_solution
   n, k = read_line
   initial = read_line
   desired = read_line
